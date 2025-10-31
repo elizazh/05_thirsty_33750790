@@ -1,0 +1,11 @@
+{
+  "name": "05_express_33775290",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": { "start": "node index.js" },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "ejs": "^3.1.10"
+  }
+}
