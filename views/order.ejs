@@ -1,0 +1,18 @@
+<%- include('partials/header', { title: 'Order • ' + shopName, shopName }) %>
+
+<h2>Place an order</h2>
+<form action="/order_result" method="GET">
+  <label for="item">Item:</label>
+  <select id="item" name="item" required>
+    <% products.forEach(p => { %>
+      <option value="<%= p.id %>"><%= p.name %> — £<%= p.price.toFixed(2) %></option>
+    <% }) %>
+  </select>
+
+  <label for="qty">Quantity:</label>
+  <input id="qty" type="number" name="qty" min="1" value="1" required>
+
+  <button type="submit">OK</button>
+</form>
+
+<%- include('partials/footer') %>
