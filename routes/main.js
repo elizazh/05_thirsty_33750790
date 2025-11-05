@@ -1,28 +1,25 @@
-const express = require("express");
-const router = express.Router();
-
-const shopName = "Thirsty Student Shop";
-const productCategories = ["Hot drinks", "Cold drinks", "Snacks"];
-
-const products = [
-  { id: "tea",    name: "Tea",    category: "Hot drinks",  price: 1.50 },
-  { id: "coffee", name: "Coffee", category: "Hot drinks",  price: 2.00 },
-  { id: "cola",   name: "Cola",   category: "Cold drinks", price: 1.20 },
-  { id: "water",  name: "Water",  category: "Cold drinks", price: 1.00 },
-  { id: "crisps", name: "Crisps", category: "Snacks",      price: 1.30 },
-  { id: "cookie", name: "Cookie", category: "Snacks",      price: 1.20 },
-];
-
-router.get("/", (req, res) => res.render("index",  { shopName, productCategories }));
-router.get("/about", (req, res) => res.render("about", { shopName }));
-
-router.get("/menu", (req, res) => res.render("menu", { shopName, products }));
-router.get("/product/:id", (req, res) => {
-  const p = products.find(x => x.id === req.params.id);
-  if (!p) return res.status(404).send("Product not found");
-  res.render("product", { shopName, p });
+// PART C — GET Order form + result
+router.get('/order', (req, res) => {
+  res.render('order', { shopName, products });
 });
 
-router.get("/order", (req, res) => res.send("<p>Order form coming in 5c…</p>"));
+router.get('/order_result', (req, res) => {
+  const { item, qty } = req.query;
+  const p = products.find(x => x.id === item);
+  const q = parseInt(qty, 10);
+  if (!p || !q || q < 1) return res.status(400).send('Please choose a product and a valid quantity.');
+  const total = (p.price * q).toFixed(2);
+  res.render('order_result', { shopName, product: p, q, total });
+});
 
-module.exports = router;
+// PART D — POST Register form
+router.get('/register', (req, res) => {
+  res.render('register', { shopName });
+});
+
+router.post('/registered', (req, res) => {
+  const { first = '', last = '', email = '' } = req.body;
+  const ok = first.trim() && last.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!ok) return res.status(400).send('Missing/invalid fields.');
+  res.render('registered', { shopName, first, last, email });
+});
