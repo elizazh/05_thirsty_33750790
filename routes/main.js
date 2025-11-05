@@ -13,11 +13,9 @@ const products = [
   { id: "cookie", name: "Cookie", category: "Snacks",      price: 1.20 },
 ];
 
-// 5a pages
-router.get("/",      (req, res) => res.render("index",  { shopName, productCategories }));
-router.get("/about", (req, res) => res.render("about",  { shopName }));
+router.get("/", (req, res) => res.render("index",  { shopName, productCategories }));
+router.get("/about", (req, res) => res.render("about", { shopName }));
 
-// 5b pages
 router.get("/menu", (req, res) => res.render("menu", { shopName, products }));
 router.get("/product/:id", (req, res) => {
   const p = products.find(x => x.id === req.params.id);
@@ -25,7 +23,6 @@ router.get("/product/:id", (req, res) => {
   res.render("product", { shopName, p });
 });
 
-// placeholder for 5c
 router.get("/order", (req, res) => res.send("<p>Order form coming in 5c…</p>"));
 
 module.exports = router;
