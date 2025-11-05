@@ -1,0 +1,20 @@
+<%- include('partials/header', { title: 'Register • ' + shopName, shopName }) %>
+
+<h2>Register</h2>
+<form method="POST" action="/registered" novalidate>
+  <div>
+    <label for="first">First name</label>
+    <input id="first" name="first" required>
+  </div>
+  <div>
+    <label for="last">Last name</label>
+    <input id="last" name="last" required>
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" required>
+  </div>
+  <button type="submit">OK</button>
+</form>
+
+<%- include('partials/footer') %>
