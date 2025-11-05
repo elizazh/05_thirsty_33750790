@@ -1,0 +1,5 @@
+<%- include('partials/header', { title: 'Order Result • ' + shopName, shopName }) %>
+<p>You ordered <strong><%= q %></strong> × <strong><%= product.name %></strong>.</p>
+<p>Total price: £<strong><%= total %></strong></p>
+<p><a href="/order">Order again</a></p>
+<%- include('partials/footer') %>
