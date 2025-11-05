@@ -1,0 +1,11 @@
+<% include('partials/header', { title: 'Menu • ' + shopName, shopName }) %>
+<h2>Menu</h2>
+<ul>
+  <% for (const p of products) { %>
+    <li>
+      <a href="/product/<%= p.id %>"><%= p.name %></a> — £<%= p.price.toFixed(2) %>
+      <small>(<%= p.category %>)</small>
+    </li>
+  <% } %>
+</ul>
+<% include('partials/footer') %>
