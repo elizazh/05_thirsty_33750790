@@ -1,9 +1,6 @@
-<!doctype html>
-<html>
-  <head><title>About <%= shopName %></title></head>
-  <body>
-    <h1>About <%= shopName %></h1>
-    <p>We sell all sorts of drinks to very thirsty students.</p>
-    <p><a href="/">Home</a></p> 
-  </body>
-</html>
+<%- include('partials/header', { title: 'About • ' + shopName, shopName }) %>
+
+<h2>About Thirsty Student</h2>
+<p>Cheap caffeine, colder colds, and snacks for study marathons.</p>
+
+<%- include('partials/footer') %>
