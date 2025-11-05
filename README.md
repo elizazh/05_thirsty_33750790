@@ -1,7 +1,7 @@
-# 05_express_33775290 — Lab 5a (Thirsty Student Shop)
+# 05_express_33775290 — Lab 5a-e (Thirsty Student Shop)
 
 Student: Eliza Hussain (ehuss003)  
-Module: Dynamic Web Apps — Lab 5a (Express + EJS)
+Module: Dynamic Web Apps — Lab 5 (Express + EJS)
 
 ## Run locally
 1. `npm install`
