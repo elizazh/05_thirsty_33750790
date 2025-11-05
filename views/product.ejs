@@ -1,0 +1,6 @@
+<% include('partials/header', { title: p.name + ' • ' + shopName, shopName }) %>
+<h2><%= p.name %></h2>
+<p>Category: <%= p.category %></p>
+<p>Price: £<%= p.price.toFixed(2) %></p>
+<p><a href="/menu">← Back to menu</a></p>
+<% include('partials/footer') %>
