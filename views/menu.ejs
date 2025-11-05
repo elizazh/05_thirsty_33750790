@@ -1,11 +1,12 @@
-<% include('partials/header', { title: 'Menu • ' + shopName, shopName }) %>
+<%- include('partials/header', { title: 'Menu', shopName: shopName }) %>
 <h2>Menu</h2>
 <ul>
-  <% for (const p of products) { %>
+  <% for (var i = 0; i < products.length; i++) { var p = products[i]; %>
     <li>
-      <a href="/product/<%= p.id %>"><%= p.name %></a> — £<%= p.price.toFixed(2) %>
-      <small>(<%= p.category %>)</small>
+      <a href="/product/<%= p.id %>"><%= p.name %></a>
+      — <%= p.category %> — £<%= p.price.toFixed(2) %>
     </li>
   <% } %>
 </ul>
-<% include('partials/footer') %>
+<p><a href="/order">Order</a></p>
+<%- include('partials/footer') %>
