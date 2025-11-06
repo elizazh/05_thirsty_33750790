@@ -4,18 +4,17 @@
 **Student:** Eliza Hussain (ehuss003)  
 **Module:** Dynamic Web Apps — Lab 5
 
-**Live site:** REPLACE_WITH_YOUR_PUBLIC_URL
+**Live site:** http://www.doc.gold.ac.uk/usr/ehuss003/
 
 ## What this is
 Small Express app using **EJS** templates and partials. Implements:
-- **5a/b:** Pages + header/footer partials (`/`, `/about`, `/menu`, `/product/:id`)
-- **5c:** GET form (`/search`) → query handler (`/search_result`)
-- **5d:** POST form (`/register`) → confirmation (`/registered`) with basic email validation
+- **5a/b:** `/`, `/about`, `/menu`, `/product/:id` + header/footer partials
+- **5c:** GET form `/search` → handler `/search_result`
+- **5d:** POST form `/register` → `/registered` (with simple email validation)
 
 ## Run locally
 ```bash
 npm install
 node index.js
-# visit http://localhost:80005d
-## Public VM link
+# visit http://localhost:8000## Public VM link
 home=http://www.doc.gold.ac.uk/usr/417/
