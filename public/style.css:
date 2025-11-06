@@ -1,0 +1,68 @@
+:root{
+  --bg: #fff4f8;
+  --panel: #ffffff;
+  --primary: #ff4d8d;
+  --primary-2: #e63e80;
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --border: rgba(0,0,0,.08);
+}
+
+*{ box-sizing: border-box; }
+body{
+  margin:0;
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 20% -10%, #ffe1ee 0%, transparent 70%),
+              radial-gradient(1200px 800px at 100% 0%, #ffd3ea 0%, transparent 70%),
+              var(--bg);
+}
+
+.page{
+  max-width: 860px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.site-header h1{ margin:0 0 8px; font-weight:800; letter-spacing:.3px; }
+.nav{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:16px; }
+.nav a{
+  text-decoration:none; color: var(--primary-2); font-weight:600;
+  border-bottom: 2px solid transparent; padding-bottom:3px;
+}
+.nav a:hover{ border-color: var(--primary); }
+
+.card{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(255,77,141,.12);
+}
+
+h2{ margin: 0 0 12px; }
+p.muted, .muted{ color: var(--muted); }
+
+.stack{ display:grid; gap:12px; max-width:520px; }
+label{ font-weight:600; display:block; }
+label input, label select{
+  display:block; width:100%; margin-top:6px;
+  padding:10px 12px; border:1px solid var(--border); border-radius:10px;
+  outline:none; background:#fff;
+}
+label input:focus, label select:focus{ border-color: var(--primary); box-shadow: 0 0 0 3px #ff4d8d22; }
+
+.btn{
+  display:inline-block; padding:10px 16px; border:none; border-radius:10px;
+  background: var(--primary); color:#fff; font-weight:700; cursor:pointer;
+}
+.btn:hover{ background: var(--primary-2); }
+
+.menu-list{ list-style:none; padding:0; margin:0; }
+.menu-list li{
+  display:flex; gap:8px; align-items:baseline; justify-content:space-between;
+  padding:10px 0; border-bottom:1px dashed var(--border);
+}
+.menu-list a{ text-decoration:none; color:#0b57d0; }
+.price{ font-weight:700; }
+.site-footer{ margin-top:16px; color:var(--muted); }
