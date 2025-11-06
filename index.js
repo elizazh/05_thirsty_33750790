@@ -10,4 +10,4 @@ app.use(express.urlencoded({ extended: true }));   // << add this
 const mainRoutes = require('./routes/main');
 app.use('/', mainRoutes);
 
-app.listen(port, () => console.log(`Thirsty Student 5a on ${port}`)); // use backticks
+app.listen(port, '0.0.0.0', () => console.log(`Thirsty Student 5a on ${port}`));
