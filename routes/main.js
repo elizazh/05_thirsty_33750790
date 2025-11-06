@@ -1,33 +1,38 @@
-// PART C — GET Order form + result
-router.get('/order', (req, res) => {
-  res.render('order', { shopName, products });
+const express = require('express');
+const router = express.Router();
+
+const productCategories = ['Hot drinks', 'Cold drinks', 'Snacks'];
+const products = [
+  { id: 'tea', name: 'Tea', price: 1.50, category: 'Hot drinks' },
+  { id: 'coffee', name: 'Coffee', price: 2.00, category: 'Hot drinks' },
+  { id: 'cola', name: 'Cola', price: 1.20, category: 'Cold drinks' },
+  { id: 'water', name: 'Water', price: 1.00, category: 'Cold drinks' },
+  { id: 'crisps', name: 'Crisps', price: 1.30, category: 'Snacks' },
+  { id: 'cookie', name: 'Cookie', price: 1.20, category: 'Snacks' },
+];
+
+router.get('/', (req,res)=> res.render('index', { productCategories }));
+router.get('/about', (req,res)=> res.render('about'));
+router.get('/menu', (req,res)=> res.render('menu', { products }));
+router.get('/product/:id', (req,res)=>{
+  const p = products.find(x=>x.id===req.params.id);
+  if(!p) return res.status(404).send('Product not found');
+  res.render('product', { p });
 });
 
-router.get('/order_result', (req, res) => {
-  const { item, qty } = req.query;
-  const p = products.find(x => x.id === item);
-  const q = parseInt(qty, 10);
-  if (!p || !q || q < 1) return res.status(400).send('Please choose a product and a valid quantity.');
-  const total = (p.price * q).toFixed(2);
-  res.render('order_result', { shopName, product: p, q, total });
+// 5c
+router.get('/search', (req,res)=> res.render('search'));
+router.get('/search_result', (req,res)=>{
+  res.send(`You searched for ${req.query.search_text} in ${req.query.category}`);
 });
 
-// PART D — POST Register form
-router.get('/register', (req, res) => {
-  res.render('register', { shopName });
+// 5d
+router.get('/register', (req,res)=> res.render('register'));
+router.post('/registered', (req,res)=>{
+  const { first='', last='', email='' } = req.body;
+  const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if(!ok) return res.status(400).send('Missing/invalid fields.');
+  res.render('registered', { first, last, email });
 });
 
-router.post('/registered', (req, res) => {
-  const { first = '', last = '', email = '' } = req.body;
-  const ok = first.trim() && last.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  if (!ok) return res.status(400).send('Missing/invalid fields.');
-  res.render('registered', { shopName, first, last, email });
-});
-router.get('/search', (req, res) => {
-  res.render('search', { shopName, productCategories });
-});
-
-router.get('/search_result', (req, res) => {
-  // exact behaviour the brief demonstrates:
-  res.send("You searched for " + req.query.search_text + " in " + req.query.category);
-});
+module.exports = router;   // <- don’t forget this
