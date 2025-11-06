@@ -23,3 +23,11 @@ router.post('/registered', (req, res) => {
   if (!ok) return res.status(400).send('Missing/invalid fields.');
   res.render('registered', { shopName, first, last, email });
 });
+router.get('/search', (req, res) => {
+  res.render('search', { shopName, productCategories });
+});
+
+router.get('/search_result', (req, res) => {
+  // exact behaviour the brief demonstrates:
+  res.send("You searched for " + req.query.search_text + " in " + req.query.category);
+});
