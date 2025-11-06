@@ -4,6 +4,7 @@
 **Student:** Eliza Hussain (ehuss003)  
 **Module:** Dynamic Web Apps — Lab 5
 
+**Live site:** http://www.doc.gold.ac.uk/usr/417/ 
 
 ## What this is
 Small Express app using **EJS** templates and partials. Implements:
@@ -17,4 +18,3 @@ npm install
 node index.js
 # visit http://localhost:8000
 
-**Live site:** http://www.doc.gold.ac.uk/usr/417/
