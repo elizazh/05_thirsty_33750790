@@ -5,8 +5,7 @@
 **Module:** Dynamic Web Apps — Lab 5
 
 **Live site:** http://www.doc.gold.ac.uk/usr/417/ 
-[
-](http://localhost:8000)
+
 ## What this is
 Small Express app using **EJS** templates and partials. Implements:
 - **5a/b:** `/`, `/about`, `/menu`, `/product/:id` + header/footer partials
