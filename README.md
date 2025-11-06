@@ -16,5 +16,4 @@ Small Express app using **EJS** templates and partials. Implements:
 ```bash
 npm install
 node index.js
-# visit http://localhost:8000## Public VM link
-home=http://www.doc.gold.ac.uk/usr/417/
+# visit http://localhost:8000
