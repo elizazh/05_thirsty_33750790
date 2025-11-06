@@ -1,11 +1,22 @@
-<%- include('partials/header', { title: 'Search • ' + shopName, shopName }) %>
-<form action="/search_result" method="GET">
-  <input id="search_box" type="text" name="search_text" required>
-  <select name="category" required>
-    <% (productCategories || []).forEach(c => { %>
-      <option value="<%= c %>"><%= c %></option>
-    <% }) %>
-  </select>
-  <input type="submit" value="OK">
+<%- include('partials/header', { title: 'Search' }) %>
+
+<h2>Search</h2>
+<p class="muted">Find a product by keyword and category.</p>
+
+<form action="/search_result" method="get" class="stack">
+  <label for="search_box">Search keyword
+    <input id="search_box" type="text" name="search_text" required />
+  </label>
+
+  <label for="category">Category
+    <select id="category" name="category" required>
+      <% (productCategories || []).forEach(c => { %>
+        <option value="<%= c %>"><%= c %></option>
+      <% }) %>
+    </select>
+  </label>
+
+  <button class="btn" type="submit">OK</button>
 </form>
+
 <%- include('partials/footer') %>
