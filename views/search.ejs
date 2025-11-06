@@ -1,0 +1,11 @@
+<%- include('partials/header', { title: 'Search • ' + shopName, shopName }) %>
+<form action="/search_result" method="GET">
+  <input id="search_box" type="text" name="search_text" required>
+  <select name="category" required>
+    <% (productCategories || []).forEach(c => { %>
+      <option value="<%= c %>"><%= c %></option>
+    <% }) %>
+  </select>
+  <input type="submit" value="OK">
+</form>
+<%- include('partials/footer') %>
