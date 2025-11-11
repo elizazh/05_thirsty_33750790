@@ -1,1 +1,7 @@
-home=http://www.doc.gold.ac.uk/usr/417/
+home=https://doc.gold.ac.uk/usr/417/
+about=https://doc.gold.ac.uk/usr/417/about
+menu=https://doc.gold.ac.uk/usr/417/menu
+product=https://doc.gold.ac.uk/usr/417/product/tea
+search=https://doc.gold.ac.uk/usr/417/search
+register=https://doc.gold.ac.uk/usr/417/register
+order=https://doc.gold.ac.uk/usr/417/order
